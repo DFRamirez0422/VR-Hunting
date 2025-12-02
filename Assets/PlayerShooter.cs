@@ -25,6 +25,6 @@ public class PlayerShooter : MonoBehaviour
 
         GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
         Rigidbody rb = proj.GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * shootForce;
+        rb.velocity = transform.forward * shootForce;
     }
 }
