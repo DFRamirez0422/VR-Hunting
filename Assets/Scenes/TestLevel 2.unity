@@ -908,7 +908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 21.100006}
+  m_AnchoredPosition: {x: -284, y: 21.100006}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792049377
@@ -1763,7 +1763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 64.2}
+  m_AnchoredPosition: {x: -284, y: 64.2}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1443286018
@@ -1961,6 +1961,7 @@ MonoBehaviour:
   nextSceneName: 
   scoreManager: {fileID: 1585588228}
   playerShooter: {fileID: 963194230}
+  countdownDuration: 3
 --- !u!114 &1585588231
 MonoBehaviour:
   m_ObjectHideFlags: 0

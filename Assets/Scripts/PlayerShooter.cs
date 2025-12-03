@@ -96,7 +96,7 @@ public class PlayerShooter : MonoBehaviour
 
     void UpdateStatusText()
     {
-        statusText.text = currentAmmo + "/" + maxAmmo;
+        statusText.text = "Ammo: " + currentAmmo + "/" + maxAmmo;
     }
 
     //NEW FUNCTION — called when timer ends
