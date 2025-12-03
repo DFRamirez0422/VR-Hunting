@@ -908,7 +908,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 21.100006}
+  m_AnchoredPosition: {x: 0, y: 21.099976}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792049377
@@ -1956,10 +1956,11 @@ MonoBehaviour:
   timerText: {fileID: 337526710}
   loseText: {fileID: 1419810003}
   loseMessage: YOU LOSE
-  requiredScore: 200
+  requiredScore: 10
   nextSceneName: TestLevel 2
   scoreManager: {fileID: 1585588228}
   playerShooter: {fileID: 963194230}
+  countdownDuration: 3
 --- !u!1 &1767220142
 GameObject:
   m_ObjectHideFlags: 0

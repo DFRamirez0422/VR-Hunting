@@ -1888,6 +1888,7 @@ GameObject:
   - component: {fileID: 1585588226}
   - component: {fileID: 1585588228}
   - component: {fileID: 1585588230}
+  - component: {fileID: 1585588231}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1960,6 +1961,22 @@ MonoBehaviour:
   nextSceneName: 
   scoreManager: {fileID: 1585588228}
   playerShooter: {fileID: 963194230}
+--- !u!114 &1585588231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585588225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5728e2689e3c9a4ea13255fbfbac37d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countdownText: {fileID: 1419810003}
+  countdownDuration: 5
+  playerShooter: {fileID: 963194230}
+  levelEndManager: {fileID: 1585588230}
 --- !u!1 &1767220142
 GameObject:
   m_ObjectHideFlags: 0

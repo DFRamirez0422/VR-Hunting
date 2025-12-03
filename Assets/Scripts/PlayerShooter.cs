@@ -99,7 +99,7 @@ public class PlayerShooter : MonoBehaviour
         statusText.text = currentAmmo + "/" + maxAmmo;
     }
 
-    // ??? NEW FUNCTION — called when timer ends
+    //NEW FUNCTION — called when timer ends
     public void DisableShooting()
     {
         shootingDisabled = true;
@@ -109,4 +109,18 @@ public class PlayerShooter : MonoBehaviour
         statusText.text = "";
         reloadSlider.value = 0f;
     }
+
+    public void ResetAmmoAndEnable()
+    {
+        shootingDisabled = false;
+        isReloading = false;
+        currentAmmo = maxAmmo;
+
+        if (reloadSlider != null)
+            reloadSlider.value = 1f;
+
+        if (statusText != null)
+            statusText.text = currentAmmo + "/" + maxAmmo;
+    }
+
 }

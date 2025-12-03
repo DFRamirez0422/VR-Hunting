@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelEndManager : MonoBehaviour
 {
@@ -20,20 +21,55 @@ public class LevelEndManager : MonoBehaviour
     [Header("Player")]
     public PlayerShooter playerShooter;         // Reference to PlayerShooter
 
+    [Header("Countdown")]
+    public float countdownDuration = 3f;        // 3, 2, 1
+    private bool countdownFinished = false;     // Tracks if countdown is done
+
     private float currentTime;
     private bool levelEnded = false;
 
     private void Start()
     {
-        currentTime = levelTime;
+        if (loseText != null)
+            loseText.gameObject.SetActive(true); // Show countdown in this text
+
+        if (playerShooter != null)
+            playerShooter.DisableShooting(); // Lock shooting during countdown
+
+        StartCoroutine(RunCountdown());
+    }
+
+    private IEnumerator RunCountdown()
+    {
+        float timer = countdownDuration;
+
+        while (timer > 0f)
+        {
+            if (loseText != null)
+                loseText.text = Mathf.Ceil(timer).ToString(); // 3, 2, 1
+
+            yield return new WaitForSeconds(1f);
+            timer -= 1f;
+        }
+
+        if (loseText != null)
+            loseText.text = "GO!";
+
+        yield return new WaitForSeconds(1f);
 
         if (loseText != null)
             loseText.gameObject.SetActive(false);
+
+        if (playerShooter != null)
+            playerShooter.ResetAmmoAndEnable(); // Unlock shooting
+
+        countdownFinished = true; // Now the main timer can start
+        StartLevelTimer();
     }
 
     private void Update()
     {
-        if (levelEnded)
+        if (levelEnded || !countdownFinished)
             return;
 
         HandleTimer();
@@ -80,8 +116,12 @@ public class LevelEndManager : MonoBehaviour
         }
 
         if (playerShooter != null)
-        {
             playerShooter.DisableShooting();
-        }
+    }
+
+    public void StartLevelTimer()
+    {
+        levelEnded = false;
+        currentTime = levelTime;
     }
 }
