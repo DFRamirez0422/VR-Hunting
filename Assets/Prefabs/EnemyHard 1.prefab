@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 1047184432074759629}
   - component: {fileID: 7878706152419511708}
   m_Layer: 0
-  m_Name: EnemyHard
+  m_Name: EnemyHard 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,9 +1046,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73884401cff40fd4ba5f66fe5486f8aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
-  range: 10
-  waitTime: 1
+  speed: 25
+  range: 15
+  waitTime: 0.5
 --- !u!114 &2951460098329509961
 MonoBehaviour:
   m_ObjectHideFlags: 0
