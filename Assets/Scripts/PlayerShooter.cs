@@ -15,10 +15,14 @@ public class PlayerShooter : MonoBehaviour
 
     [Header("UI")]
     public Slider reloadSlider;
-    public Text statusText;  // <-- ONE text element for both ammo & reloading
+    public Text statusText;
 
     private int currentAmmo;
     private bool isReloading = false;
+
+    //NEW: global shooting lock after timer ends
+    private bool shootingDisabled = false;
+
     private float reloadTimer = 0f;
 
     void Start()
@@ -26,12 +30,15 @@ public class PlayerShooter : MonoBehaviour
         currentAmmo = maxAmmo;
         reloadSlider.maxValue = 1f;
         reloadSlider.value = 1f;
-
         UpdateStatusText();
     }
 
     void Update()
     {
+        //Prevent any shooting or reloading logic after timer ends
+        if (shootingDisabled)
+            return;
+
         if (!isReloading && Input.GetMouseButtonDown(0))
         {
             Shoot();
@@ -41,7 +48,6 @@ public class PlayerShooter : MonoBehaviour
         {
             reloadTimer += Time.deltaTime;
             reloadSlider.value = reloadTimer / reloadTime;
-
             statusText.text = "RELOADING";
 
             if (reloadTimer >= reloadTime)
@@ -91,5 +97,16 @@ public class PlayerShooter : MonoBehaviour
     void UpdateStatusText()
     {
         statusText.text = currentAmmo + "/" + maxAmmo;
+    }
+
+    // ??? NEW FUNCTION — called when timer ends
+    public void DisableShooting()
+    {
+        shootingDisabled = true;
+        isReloading = false;
+
+        // Blank UI
+        statusText.text = "";
+        reloadSlider.value = 0f;
     }
 }

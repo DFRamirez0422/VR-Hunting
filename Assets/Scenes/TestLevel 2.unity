@@ -622,7 +622,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 906d1b8d0428d2e468cf0a8326fae679, type: 2}
+  - {fileID: -5243988174349660497, guid: 6d91932d97847bf4698a6d38d40562ce, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1268,7 +1268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Score to Win: 200'
+  m_Text: 'Score Required to Win: '
 --- !u!222 &1053208994
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1907,8 +1907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15436a17a4add249904877728ea8dfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab1: {fileID: 2526840504693805208, guid: 28f20f08863575a45a546acd1c81c3ce, type: 3}
-  enemyPrefab2: {fileID: 9087181798044095527, guid: df6f2fa63ae8c864092d507609270eea, type: 3}
+  enemyPrefab1: {fileID: 2526840504693805208, guid: 34960db818f1fa74cb723962c2cee640, type: 3}
+  enemyPrefab2: {fileID: 9087181798044095527, guid: 6d8a992199cdf8e4daf42c4a33a40d69, type: 3}
   spawnPos1: {x: 0, y: 1.5, z: 5}
   spawnPos2: {x: 2, y: 0.25, z: 5}
   respawnDelay: 0.5
@@ -1952,12 +1952,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaa06294f1210f64f9bfa994fba49683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTime: 45
+  levelTime: 10
   timerText: {fileID: 337526710}
   loseText: {fileID: 1419810003}
   loseMessage: YOU LOSE
-  requiredScore: 200
-  nextSceneName: TestLevel 2
+  requiredScore: 10
+  nextSceneName: 
   scoreManager: {fileID: 1585588228}
   playerShooter: {fileID: 963194230}
 --- !u!1 &1767220142

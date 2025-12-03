@@ -11,6 +11,11 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         if (scoreText != null)
-            scoreText.text = "Score: " + score;
+            scoreText.text = "Current Score: " + score;
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
 }
