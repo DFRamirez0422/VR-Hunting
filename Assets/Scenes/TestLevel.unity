@@ -822,8 +822,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 7218759215284873894, guid: c818f8a585ec63746b4ed0ee6489fcb9, type: 3}
   shootForce: 50
-  feedbackText: {fileID: 416889841}
   spawnDistance: 0.5
+  fireCooldown: 0.5
 --- !u!1001 &1250915594
 PrefabInstance:
   m_ObjectHideFlags: 0
