@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.XR; // <-- Added for VR detection
 
 public class PlayerShooter : MonoBehaviour
 {
@@ -25,17 +26,23 @@ public class PlayerShooter : MonoBehaviour
 
     private float reloadTimer = 0f;
 
+    // NEW: VR detection
+    private bool usingVR = false;
+
     void Start()
     {
         currentAmmo = maxAmmo;
         reloadSlider.maxValue = 1f;
         reloadSlider.value = 1f;
         UpdateStatusText();
+
+        // Detect if VR headset is active
+        usingVR = XRSettings.isDeviceActive;
     }
 
     void Update()
     {
-        //Prevent any shooting or reloading logic after timer ends
+        // Prevent any shooting or reloading logic after timer ends
         if (shootingDisabled)
             return;
 
@@ -63,11 +70,22 @@ public class PlayerShooter : MonoBehaviour
             return;
         }
 
-        Vector3 spawnPos = transform.position + transform.forward * spawnDistance;
+        // Determine the shooting direction
+        Vector3 forward;
+        if (usingVR)
+        {
+            forward = Camera.main.transform.forward; // VR headset forward
+        }
+        else
+        {
+            forward = transform.forward; // Original mouse look direction
+        }
+
+        Vector3 spawnPos = transform.position + forward * spawnDistance;
         GameObject proj = Instantiate(projectilePrefab, spawnPos, Quaternion.identity);
 
         Rigidbody rb = proj.GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * shootForce;
+        rb.linearVelocity = forward * shootForce;
 
         currentAmmo--;
         reloadSlider.value = (float)currentAmmo / maxAmmo;
@@ -99,7 +117,7 @@ public class PlayerShooter : MonoBehaviour
         statusText.text = "Ammo: " + currentAmmo + "/" + maxAmmo;
     }
 
-    //NEW FUNCTION — called when timer ends
+    // NEW FUNCTION ï¿½ called when timer ends
     public void DisableShooting()
     {
         shootingDisabled = true;
@@ -122,5 +140,4 @@ public class PlayerShooter : MonoBehaviour
         if (statusText != null)
             statusText.text = currentAmmo + "/" + maxAmmo;
     }
-
 }
