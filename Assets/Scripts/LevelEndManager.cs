@@ -14,7 +14,7 @@ public class LevelEndManager : MonoBehaviour
     public string loseMessage = "YOU LOSE";     // Editable message
 
     [Header("Winning / Next Level")]
-    public int requiredScore = 10;              // Score needed to advance
+    public int requiredScore = 100;              // Score needed to advance
     public string nextSceneName;                // Name of next scene
     public ScoreManager scoreManager;           // Reference to your ScoreManager
 
